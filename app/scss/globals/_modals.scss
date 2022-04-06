@@ -1,0 +1,33 @@
+.lgp-modal {
+
+  .modal-dialog {
+    position: relative;
+    pointer-events: auto;
+  }
+  .modal-close, .modal-options {
+    @include position(absolute, 10px 10px null null);
+  }
+  .modal-content {
+    min-height: 200px;
+    border-radius: $component-border-radius;
+    overflow: hidden;
+
+    .header-lg, .header-md-alt {
+      color: $color-brand-blue;
+    }
+  }
+  
+  @media (min-width: $grid-breakpoint-md) {
+    .modal-dialog {
+      max-width: $modal-size;
+      margin: 3rem auto;
+    }
+  }
+  
+  & ~ .modal-backdrop {
+    background-color: $color-brand-blue;
+    &.show {
+      opacity: $overlay-opacity;
+    }
+  }
+}

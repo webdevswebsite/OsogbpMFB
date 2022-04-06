@@ -1,0 +1,90 @@
+
+.sidebar-container {
+  position: relative;
+  padding-left: 0;
+  transition: $component-fx-duration;
+
+  > .sidebar {
+    @include position(fixed, 0 null 0 0);
+    width: $sidebar-size;
+    transform: translateX(-$sidebar-size);
+    display: flex;
+    flex-direction: column;
+    background-color: $color-brand-blue;
+    z-index: 5;
+    transition: $component-fx-duration;
+    
+    .header {
+      background-color: $color-brand-teal;
+      height: $nav-header-height;
+      flex: 0 0 auto;
+    }
+    .brand .logo {
+      width: 100px;
+      height: 25px;
+      transform: translateY(5px);
+    }
+    .navs {
+      flex: 1 1 auto;
+      overflow: auto;
+    }
+  }
+
+  > .sidebar-pusher {
+    transition: $component-fx-duration;
+    position: relative;
+  }
+
+  .lgp-container {
+    margin: 0 auto;
+    $collapse-width: $sidebar-collapse-breakpoint - 80px;
+    @include fluid-prop(width, -30px, $collapse-width, $grid-breakpoint-xxs, $sidebar-collapse-breakpoint, $limit-max: true);
+    @include fluid-prop(width, ($collapse-width - $sidebar-size), (1200px - $sidebar-size), $sidebar-collapse-breakpoint, $grid-breakpoint-xxl, $limit-min: true);
+  }
+
+  @media screen and (min-width: $sidebar-collapse-breakpoint) {
+    padding-left: $sidebar-size;
+    
+    > .sidebar {
+      transform: translateX(0);
+    }
+    .is-sidebar-responsive {
+      margin-left: $sidebar-size;
+    }
+  }
+
+  &.sidebar-opened {
+    @media screen and (max-width: $sidebar-collapse-breakpoint) {
+      overflow: hidden;
+
+      > .sidebar {
+        transform: translateX(0);
+      }
+      > .sidebar-pusher {
+        transform: translateX($sidebar-size);
+        // filter: blur($overlay-blur-radius);
+        
+        &::before {
+          @include position(absolute, 0 0 0 0);
+          content: '';
+          background-color: $color-brand-blue;
+          opacity: $overlay-opacity;
+          z-index: 20;
+        }
+      }
+      .nav-burger {
+        .line-1 {
+          transform: translateY(7px) rotate(45deg) scaleX(1.2);
+        }
+        .line-2 {
+          transform: scaleX(0);
+          opacity: 0;
+        }
+        .line-3 {
+          transform: translateY(-7px) rotate(-45deg) scaleX(1.2);
+        }
+      }
+    }
+  }
+
+}

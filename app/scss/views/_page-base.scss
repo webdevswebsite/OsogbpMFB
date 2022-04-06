@@ -1,0 +1,160 @@
+// -------------------------------------------------------------------------
+// Page and footer layout
+// -------------------------------------------------------------------------
+.page {
+  min-height: 80vh;
+  background-color: $color-brand-ash;
+  position: relative;
+  
+  input.mobile-nav-toggle:checked ~ & {
+    @media (max-width: $grid-breakpoint-lg) {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      filter: blur($overlay-blur-radius);
+    }
+  }
+}
+
+// -------------------------------------------------------------------------
+// Page sections
+// -------------------------------------------------------------------------
+
+.page-section {
+  overflow-x: hidden;
+}
+.page-section:not(.image-bg-section) {
+  .content {
+    @include fluid-prop(padding-top, 50px, 120px, $grid-breakpoint-xs);
+    @include fluid-prop(padding-bottom, 50px, 120px, $grid-breakpoint-xs);
+  }
+  .header-lg, .header-md-alt {
+    color: $color-brand-blue;
+  }
+} 
+
+
+// -------------------------------------------------------------------------
+// Page sections with background images
+// -------------------------------------------------------------------------
+
+.image-bg-section {
+  position: relative;
+  min-height: 300px;
+
+  .background {
+    @include position(absolute, 0 0 0 0);
+    overflow: hidden;
+  }
+  .foreground {
+    position: relative;
+  }
+  .gradient {
+    width: 100%;
+    height: 100%;
+    @include position(absolute, 0 0 0 0);
+  }
+  .content {
+    color: $color-white;
+    text-shadow: 0 0 30px rgba($color-black, 0.1);
+  }
+  .description {
+    margin: 1.8rem 0 0;
+  }
+  .cta {
+    margin-top: 2.4rem ;
+  }
+}
+
+
+// -------------------------------------------------------------------------
+// Collapsible banner section
+// -------------------------------------------------------------------------
+
+.banner-section.page-section {
+  min-height: unset;
+  
+  .gradient {
+    background-image: linear-gradient(to right,
+                    rgba($color-brand-nude, .95) 0%,
+                    rgba($color-brand-nude, .5) 100%);
+  }
+  .content {
+    @include fluid-prop(padding-top, 30px, 50px);
+    @include fluid-prop(padding-bottom, 30px, 50px);
+    color: $color-brand-blue;
+    text-shadow: 0 0 30px rgba($color-black, 0.1);
+  }
+  .description {
+    margin: 1.2rem 0 0;
+  }
+  .cta {
+    margin-top: 1.5rem ;
+  }
+  .close {
+    @include position(absolute, 0 0 null null);
+  }
+}
+
+
+// -------------------------------------------------------------------------
+// Page footer
+// -------------------------------------------------------------------------
+
+.page-footer {
+  background-color: $color-brand-teal;
+
+  .content {
+    @include fluid-prop(padding-top, 60px, 80px);
+    @include fluid-prop(padding-bottom, 60px, 80px);
+
+    @media (min-width: $grid-breakpoint-sm) and (max-width: $grid-breakpoint-md) {
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      justify-content: space-between !important;
+    }
+  }
+
+  .brand {
+    position: relative;
+    transform: translateY(3px);
+    margin-bottom: 30px;
+
+    @media (min-width: $grid-breakpoint-sm) and (max-width: $grid-breakpoint-md) {
+      width: 100% !important;
+      margin-bottom: 40px;
+      justify-content: center !important;
+    }
+    @media (min-width: $grid-breakpoint-md) {
+      margin-bottom: 0;
+    }
+
+    .logo {
+      width: 100px;
+      height: 25px;
+
+      @media (min-width: $grid-breakpoint-md) {
+        width: 125px;
+        height: 31px;
+      }
+    }
+  }
+  .divider {
+    height: 70px;
+  }
+  .footer-nav {
+    @media (min-width: $grid-breakpoint-sm) and (max-width: $grid-breakpoint-md) {
+      align-items: flex-start !important;
+    }
+  }
+  .footer-link {
+    font-weight: 300;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+

@@ -1,0 +1,112 @@
+// -------------------------------------------------------------------------
+// Generic dashboard details section
+// -------------------------------------------------------------------------
+
+.dashboard-details.page-section {
+  background-color: $color-brand-peach;
+
+  font-family: $font-family-card;
+  font-size: 1em;
+
+  .content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .content.section-header {
+    margin-bottom: 1.8rem;
+    color: $color-brand-grey-dark;
+  }
+  .details {
+    position: relative;
+    width: 100%;
+  }
+  .title {
+    color: $color-brand-blue;
+    margin-bottom: .2rem;
+  }
+  .detail {
+    color: $color-brand-grey-dark;
+    margin-top: .1rem;
+
+    &.separate {
+      @include fluid-prop(margin-top, 20px, 30px);
+    }
+    &.separate-more {
+      @include fluid-prop(margin-top, 35px, 60px);
+    }
+  }
+  .detail.alt {
+    color: $color-brand-blue;
+    font-weight: 500;
+    
+    .preamble {
+      color: $color-brand-grey-dark;
+      font-weight: 300;
+      display: inline-block;
+      min-width: 140px;
+    }  
+  }
+
+  .divider {
+    &.vertical {
+      height: 100px;
+    }
+    &.horizaontal {
+      width: 100%;
+    }
+  }
+
+  .profile-photo {
+    flex: 0 0 auto;
+    width: 70px;
+    height: 70px;
+    
+    @media (min-width: $grid-breakpoint-lg) {
+      width: 100px;
+      height: 100px;
+    }
+
+    .avatar {
+      fill: $color-white;
+      background-color: transparent;
+    }
+  }
+
+  .profile-details {
+    margin-left: 30px;
+  }
+
+  .profile-name {
+    margin: 5px 0 0;
+  }
+  .rating {
+    display: flex;
+    margin-top: 8px;    
+
+    .icon {
+      fill: $color-brand-grey-light;
+      width: $component-icon-size-xs;
+      height: $component-icon-size-xs;
+
+      @media (min-width: $grid-breakpoint-lg) {
+        width: $component-icon-size-sm;
+        height: $component-icon-size-sm;
+      }
+
+      &:not(:first-child) {
+        @include fluid-prop(margin-left, 2px, 5px, $grid-breakpoint-md);
+      }
+    }
+    @for $i from 1 through 5 {
+      &.stars-#{$i} .icon:nth-child(-n + #{$i}) {
+        fill: $color-brand-blue;
+      }
+    }
+  }
+
+  .actions {
+    .btn {
+      margin: 5px;
+    }
+  }
+}

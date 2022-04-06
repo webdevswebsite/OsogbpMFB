@@ -1,0 +1,94 @@
+
+// -------------------------------------------------------------------------
+// Hero section
+// -------------------------------------------------------------------------
+
+.hero {
+  .gradient {
+    @include position(absolute, 50% 0 0 50%);
+    background-image: radial-gradient( ellipse at center,
+                    rgba($color-brand-fuchsia,.5) 0%,
+                    rgba($color-brand-fuchsia,.9) 50%,
+                    rgba($color-brand-orange,.95) 100%);
+    width: 200vw;
+    height: 200vh;
+    transform: translate(-50%, -50%);
+  }
+  .content {
+    @include fluid-prop(padding-top, 120px, 280px);
+    @include fluid-prop(padding-bottom, 50px, 130px);
+    text-shadow: 0 0 30px rgba($color-black, 0.1);
+    text-align: center;
+
+    @media (min-width: $grid-breakpoint-md) {
+      text-align: left;
+    }
+  }
+  .title {
+    animation: slide-down .6s ease-in-out;
+  }
+  .description {
+    animation: fade-in-staggered 1s ease-in-out;
+    padding: 0 30px;
+    max-width: 650px;
+    font-size: 16px;
+
+    @media (min-width: $grid-breakpoint-sm) {
+      padding: 0;
+    }
+  }
+  .cta {
+    animation: slide-down-staggered 1.4s ease-in-out;
+  }
+}
+
+
+// -------------------------------------------------------------------------
+// Pro-signup section
+// -------------------------------------------------------------------------
+
+.pro-signup {
+  .gradient {
+    background-image: linear-gradient(to right,
+                    rgba($color-brand-green,.5) 0%,
+                    rgba($color-brand-green,.9) 50%,
+                    rgba($color-brand-green,.95) 100%);
+  }
+  .content {
+    @include fluid-prop(padding-top, 50px, 70px);
+    @include fluid-prop(padding-bottom, 50px, 70px);
+  }
+}
+
+
+// -------------------------------------------------------------------------
+// Benefits section
+// -------------------------------------------------------------------------
+
+.benefits.page-section {
+  background-color: $color-brand-ash;
+
+  .steps {
+    width: 100%;
+    margin-top: 5rem;
+    @include fluid-prop(margin-top, 40px, 80px, $grid-breakpoint-md);
+  }
+  .illustrated-item {
+    margin-bottom: 30px;
+  }
+  .illustrated-item .illustration {
+    width: 60px;
+    height: 60px;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: $color-brand-grey-light;
+    margin: 10px 0;
+
+    .icon {
+      fill: $color-brand-fuchsia;
+    }
+  }
+  .illustrated-item .title {
+    color: $color-brand-fuchsia;
+  }
+}

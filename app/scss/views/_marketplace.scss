@@ -1,0 +1,35 @@
+// -------------------------------------------------------------------------
+// Marketplace section
+// -------------------------------------------------------------------------
+  
+.marketplace.page-section {
+  background-color: $color-white;
+}
+.marketplace .description {
+  margin-top: 2.5rem;
+  max-width: 500px;
+}
+.marketplace .lgp-tabs {
+  width: 100%;
+  margin: 5rem 0;
+  @include fluid-prop(margin-top, 40px, 80px, $grid-breakpoint-md);
+
+  .tab-panel {
+    @include fluid-prop(margin-top, 30px, 50px, $grid-breakpoint-md);
+  }
+}
+
+.marketplace .options-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  @include fluid-prop(margin-top, 5px, 40px, $grid-breakpoint-md);
+
+  .form-group, label {
+    margin-bottom: 0;
+  }
+  label {
+    align-self: center;
+  }
+}

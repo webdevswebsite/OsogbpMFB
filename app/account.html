@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- title -->
+    <title>Lendgap - Get a quick loan whenever you need it.</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles2.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+
+<body class="sidebar-container">
+    <!-- header navbar -->
+    <header class="lgp-navbar dashboard-navbar is-sidebar-responsive">
+        <div class="content lgp-container d-flex justify-content-between align-items-center justify-content-md-end">
+            <div class="navs d-md-none">
+                <a class="sidebar-toggle nav-burger left">
+                    <span class="line-1"></span>
+                    <span class="line-2"></span>
+                    <span class="line-3"></span>
+                </a>
+                <a class="brand" href="index.html">
+                    <svg class="logo" width="100%" height="100%">
+                        <use xlink:href="#lendgap-logo-with-gradient"></use>
+                    </svg>
+                </a>
+            </div>
+            <nav class="navs">
+                <div class="nav-item">
+                    <button type="button" class="notifications active btn btn-icon btn-lg btn-trans-grey">
+                        <svg class="icon">
+                            <use xlink:href="#notification" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="nav-item account dropdown">
+                    <button class="btn btn-trans-grey dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <div class="profile-photo shadow">
+                            <svg class="avatar icon">
+                                <use xlink:href="#avatar"></use>
+                            </svg>
+                            <div class="photo bg-cover bg-center" style="background-image: url('./img/profile-1.jpg')"></div>
+                        </div>
+                        <span class="caption d-none d-md-inline-block">Jumoke Coker</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item text-link" href="account.html">Account Settings</a>
+                        <a class="dropdown-item text-link" href="bookmarks.html">Bookmarks</a>
+                        <a class="dropdown-item text-link" href="index.html">Log out</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- sidebar -->
+    <aside class="sidebar">
+        <div class="header d-flex justify-content-center align-items-center">
+            <a class="brand" href="index.html">
+                <svg class="logo">
+                    <use xlink:href="#lendgap-logo-with-gradient" />
+                </svg>
+            </a>
+        </div>
+        <ul class="navs d-flex flex-column align-items-stretch">
+            <!-- <li class="nav-item">
+                <a class="btn btn-sidebar" href="livemarket.html">
+                    <svg class="icon">
+                        <use xlink:href="#mart"></use>
+                    </svg>
+                    <span class="caption">Marketplace</span>
+                </a>
+            </li> -->
+            <li class="nav-item">
+                <a class="btn btn-sidebar" href="borrow-0.html">
+                    <svg class="icon">
+                        <use xlink:href="#arrow-right"></use>
+                    </svg>
+                    <span class="caption">Borrow</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-sidebar" href="lend-0.html">
+                    <svg class="icon flipped-h">
+                        <use xlink:href="#arrow-right"></use>
+                    </svg>
+                    <span class="caption">Lend</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-sidebar" href="transactions.html">
+                    <svg class="icon">
+                        <use xlink:href="#history"></use>
+                    </svg>
+                    <span class="caption">Transactions</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-sidebar active" href="account.html">
+                    <svg class="icon">
+                        <use xlink:href="#account"></use>
+                    </svg>
+                    <span class="caption">Account</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- page content -->
+    <main class="account page dashboard-page sidebar-pusher d-flex flex-column flexer">
+
+        <!-- alert message -->
+        <section class="success lgp-alert alert-green collapse show">
+            <div class="content lgp-container">
+                <p class="message text-small">Filling your details; profile and card details</p>
+            </div>
+            <button class="close btn btn-icon btn-lg btn-trans-white" type="button" data-toggle="collapse" data-target=".success.lgp-alert">
+                <svg class="icon">
+                    <use xlink:href="#close" />
+                </svg>
+            </button>
+        </section>
+        <!-- manage-account section -->
+        <section class="manage-account page-section">
+            <div class="content lgp-container d-flex flex-column align-items-center">
+                <div class="lgp-tabs">
+                    <!-- profile -->
+                    <input class="tab-input hidden" type="radio" name="manage-account-tabs" id="profile-tab" hidden checked>
+                    <label class="tab-button btn btn-tab btn-chrome" for="profile-tab">Profile</label>
+                    <div class="tab-panel">
+                        <form class="profile-form lgp-form-alt row">
+                            <div class="col-12 offset-sm-2 col-sm-8 offset-md-1 col-md-10 offset-lg-0 col-lg-12 offset-xl-1 col-xl-10">
+                                <section class="row profile-info">
+                                    <div class="col-12">
+                                        <h2 class="form-header form-header header-md-alt mb-5">Profile Information</h2>
+                                    </div>
+                                    <div class="offset-lg-1 col-lg-7 order-lg-1">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="form-label-caps" for="full-name-input">Full Name</label>
+                                                    <input type="text" class="form-control form-control-md" name="amount" id="full-name-input" value="Jumoke Oladunni Coker"
+                                                        readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label-caps" for="email-input">Email</label>
+                                                    <input type="text" class="form-control form-control-md" name="amount" id="email-input" value="jo.coker@gmail.com" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label-caps" for="dob-input">Date of Birth</label>
+                                                    <input type="text" class="form-control form-control-md" name="amount" id="dob-input" value="September 17, 1993" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="form-label-caps" for="gender-input">Gender</label>
+                                                    <input type="text" class="form-control form-control-md" name="amount" id="gender-input" value="Female" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label-caps" for="phone-input">Phone</label>
+                                                    <input type="text" class="form-control form-control-md" name="amount" id="phone-input" value="+234 811 2777 318" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label-caps" for="location-input">Location</label>
+                                                    <input type="text" class="form-control form-control-md" name="amount" id="location-input" value="Ajah, Lagos" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="d-lg-none">
+                                            <span class="divider horizontal w-100  mt-3 mb-5"></span>
+                                        </div>
+                                        <div class="profile-photo">
+                                            <svg class="avatar icon">
+                                                <use xlink:href="#avatar"></use>
+                                            </svg>
+                                            <div class="photo bg-cover bg-center" style="background-image: url('./img/profile-3.jpg')"></div>
+                                            <button class="upload btn btn-md btn-trans-alt btn-caps">Upload Photo</button>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div class="divider horizontal w-100 mt-5 mb-5"></div>
+
+                                <!-- linked account -->
+                                <section class="row employment">
+                                    <form class="linked-accounts-form lgp-form-alt form-row">
+                                        <div class="col-12 mb-5">
+                                            <h2 class="form-header header-md-alt pt-3">Linked Accounts</h2>
+                                            <small class="">Users with linked account have more chances of been seen</small>
+                                        </div>
+                                        <div class="col-12 col-lg-8">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-12 mb-3">
+                                                    <a href="#">
+                                                        <div class="linked__account">
+                                                            <p class="linked__account-text connected-facebook">
+                                                                <i class="fab fa-facebook-f mr-3"></i>Facebook
+                                                                <i class="fas fa-times float-right align-middle"></i>
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-12 mb-3">
+                                                    <a href="#">
+                                                        <div class="linked__account">
+                                                            <p class="linked__account-text connected-google">
+                                                                <i class="fab fa-google mr-3 connected-google-icon"></i>Google
+                                                                <i class="fas fa-times float-right align-middle"></i>
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-12 mb-3">
+                                                    <a href="#">
+                                                        <div class="linked__account">
+                                                            <p class="linked__account-text">
+                                                                <i class="fab fa-linkedin mr-3"></i>Linkedin
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-12 mb-3">
+                                                    <a href="#">
+                                                        <div class="linked__account">
+                                                            <p class="linked__account-text connected-twitter">
+                                                                <i class="fab fa-twitter-square mr-3"></i>Twitter
+                                                                <i class="fas fa-times float-right align-middle"></i>
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                                <!-- <div class="form-group">
+                                                <label class="form-label-caps">Facebook</label>
+                                                <div class="row align-items-center">
+                                                    <div class="col-12 col-sm-6 col-lg-4">
+                                                        <button class="btn btn-md btn-facebook btn-chrome btn-space-text icon-align-left w-100">
+                                                            <svg class="icon">
+                                                                <use xlink:href="#facebook"></use>
+                                                            </svg>
+                                                            <span class="caption">Connected</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <label class="info mb-0">www.facebook.com/jummycoker</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label-caps">Google</label>
+                                                <div class="row align-items-center">
+                                                    <div class="col-12 col-sm-6 col-lg-4">
+                                                        <button class="btn btn-md btn-google btn-chrome btn-space-text icon-align-left w-100">
+                                                            <svg class="icon">
+                                                                <use xlink:href="#google"></use>
+                                                            </svg>
+                                                            <span class="caption">Connect</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <label class="info ml-4 mb-0"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label-caps">Linked In</label>
+                                                <div class="row align-items-center">
+                                                    <div class="col-12 col-sm-6 col-lg-4">
+                                                        <button class="btn btn-md btn-linked-in btn-chrome btn-space-text icon-align-left w-100">
+                                                            <svg class="icon">
+                                                                <use xlink:href="#linked-in"></use>
+                                                            </svg>
+                                                            <span class="caption">Connect</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <label class="info ml-4 mb-0"></label>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </section>
+                                <div class="divider horizontal w-100 mt-5 mb-5"></div>
+
+                                <!-- Employment -->
+                                <section class="row employment">
+                                    <div class="col-12">
+                                        <h2 class="form-header header-md-alt mb-5 pt-3">Employment</h2>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="form-label-caps">Are you employed?</label>
+                                            <div class="form-row">
+                                                <div class="col-auto">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="employment-status-1-input" name="employment-status" value="1" class="custom-control-input" checked>
+                                                        <label class="custom-control-label" for="employment-status-1-input">Yes</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto ml-5">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="employment-status-2-input" name="employment-status" value="0" class="custom-control-input">
+                                                        <label class="custom-control-label" for="employment-status-2-input">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="form-label-caps">Employment Type?</label>
+                                            <div class="form-row">
+                                                <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="employment-type-1-input" name="employment-type" value="1" class="custom-control-input">
+                                                        <label class="custom-control-label" for="employment-type-1-input">Full-Time</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-auto ml-lg-5 mt-3 mt-lg-0">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="employment-type-2-input" name="employment-type" value="2" class="custom-control-input" checked>
+                                                        <label class="custom-control-label" for="employment-type-2-input">Part-Time</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-auto ml-lg-5 mt-3 mt-lg-0">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="employment-type-3-input" name="employment-type" value="3" class="custom-control-input">
+                                                        <label class="custom-control-label" for="employment-type-3-input">Self-Employed</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div class="form-group">
+                                            <label class="form-label-caps" for="job-title-input">Job Title / Position</label>
+                                            <input type="text" class="form-control form-control-md" name="amount" id="job-title-input" value="UI/UX Designer">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div class="form-group">
+                                            <label class="form-label-caps" for="organisation-name-input">Name of Company/Organisation/Self-Owned Business</label>
+                                            <input type="text" class="form-control form-control-md" name="amount" id="organisation-name-input" value="Accenture Inc.">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div class="form-group">
+                                            <label class="form-label-caps" for="organisation-address-input">Address of Company/Organisation/Self-Owned Business</label>
+                                            <textarea class="form-control form-control-md" name="amount" id="organisation-address-input" rows="3">2nd Floor, Citi Bank Building 27, Kofo Abayomi Street Victoria Island, Lagos.</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-9">
+                                        <div class="form-group">
+                                            <label class="form-label-caps" for="salary-range-select">Current Salary Range</label>
+                                            <div class="select-wrapper">
+                                                <select class="form-control form-control-md" id="salary-range-select" name="salary-range">
+                                                    <option value="Below - N100,000" selected>Below - N100,000</option>
+                                                    <option value="N100,000 - N500,000">N100,000 - N500,000</option>
+                                                    <option value="N500,000 - N1,000,000">N500,000 - N1,000,000</option>
+                                                    <option value="N1,000,000 - Above">N1,000,000 - Above</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div class="divider horizontal w-100 mt-5 mb-5"></div>
+                                <section class="row identification">
+                                    <div class="col-12">
+                                        <h2 class="form-header header-md-alt mb-5 pt-3">Identification</h2>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="form-label-caps">Means of Identification</label>
+                                            <div class="form-row">
+                                                <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="id-type-1-input" name="id-type" value="1" class="custom-control-input">
+                                                        <label class="custom-control-label" for="id-type-1-input">National ID Card</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-auto ml-lg-5 mt-3 mt-lg-0">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="id-type-2-input" name="id-type" value="2" class="custom-control-input">
+                                                        <label class="custom-control-label" for="id-type-2-input">Driver’s License</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-auto ml-lg-5 mt-3 mt-lg-0">
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="id-type-3-input" name="id-type" value="3" class="custom-control-input" checked>
+                                                        <label class="custom-control-label" for="id-type-3-input">International Passport</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div class="form-group">
+                                            <label class="form-label-caps" for="id-number-input">Identification Number</label>
+                                            <input type="text" class="form-control form-control-md" name="amount" id="id-number-input" value="3178971LA">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div class="form-group">
+                                            <label class="form-label-caps" for="organisation-name-input">Upload Photo or Scanned Copy of ID</label>
+                                            <div class="d-flex align-items-center">
+                                                <button class="btn btn-md btn-grey-white btn-caps btn-chrome">
+                                                    <svg class="icon flipped-h">
+                                                        <use xlink:href="#arrow-up"></use>
+                                                    </svg>
+                                                    <span class="caption">Upload File</span>
+                                                </button>
+                                                <label class="info ml-4 mb-0">DSC0001291.jpg</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div class="divider horizontal w-100 mt-5 mb-5"></div>
+                                <section class="row cta">
+                                    <div class="col-12 col-lg-4">
+                                        <button type"submit" class="btn btn-md btn-green btn-caps btn-chrome btn-shadow w-100">Save Changes</buttom>
+                                    </div>
+                                </section>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Card details -->
+                    <input class="tab-input hidden" type="radio" name="manage-account-tabs" id="bank-tab" hidden>
+                    <label class="tab-button btn btn-tab btn-chrome" for="bank-tab">Card&nbsp;
+                        <span class="d-none d-sm-inline">Details</span>
+                    </label>
+                    <div class="tab-panel">
+                        <form class="bank-details-form lgp-form-alt row">
+                            <div class="col-12 offset-sm-1 col-sm-10 offset-md-1 col-md-10 offset-lg-0 col-lg-12 offset-xl-1 col-xl-10">
+                                <section class="row bank">
+                                    <div class="col-12">
+                                        <h2 class="form-header header-md-alt mb-5">Card Information</h2>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div class="form-group">
+                                            <label class="form-label-caps" for="bank-account-name-input">Name on Card</label>
+                                            <input type="text" class="form-control form-control-md" name="bank-account-name" id="bank-account-name-input" value="Jumoke Oladunni Coker">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div class="form-group">
+                                            <label class="form-label-caps" for="bank-account-number-input">Card Number</label>
+                                            <input type="text" class="form-control form-control-md" name="bank-account-number" id="bank-account-number-input" value="0017-0123-1323-1234">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div class="row">
+                                            <div class="col-12 col-lg-8 col-md-8">
+                                                <label class="form-label-caps" for="bank-account-number-input">Expiring Date (MM/YYYY)</label>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <div class="select-wrapper">
+                                                                <select class="form-control form-control-md" id="expiring-year-select" name="expiring-year">
+                                                                    <option value="" disabled selected>MM</option>
+                                                                    <option value="January">January</option>
+                                                                    <option value="Feburary">Feburary</option>
+                                                                    <option value="March">March</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-12">
+                                                        <div class="form-group">
+                                                            <div class="select-wrapper">
+                                                                <select class="form-control form-control-md" id="expiring-year-select" name="expiring-year">
+                                                                    <option value="" disabled selected>YYYY</option>
+                                                                    <option value="2021">2021</option>
+                                                                    <option value="2022">2022</option>
+                                                                    <option value="2023">2023</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-12 col-lg-4 col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-label-caps" for="bank-account-number-input"></label>
+                                                    <input type="" class="form-control form-control-md" name="Expiring Date" id="bank-account-number-input" value="12/20" placeholder="12/20">
+                                                </div>
+                                            </div> -->
+                                            <div class="col-12 col-lg-4 col-md-4">
+                                                <div class="form-group">
+                                                    <label class="form-label-caps" for="bank-name-select">CVV
+                                                        <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="The three numbers behind your card"></i>
+                                                    </label>
+                                                    <input type="number" class="form-control form-control-md" name="Expiring Date" id="bank-account-number-input" value="212">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div class="divider horizontal w-100 mt-5 mb-5"></div>
+                                <section class="row cta">
+                                    <div class="col-12 col-lg-4">
+                                        <button type="submit" class="btn btn-md btn-green btn-caps btn-chrome btn-shadow w-100">Update card Details</button>
+                                    </div>
+                                </section>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- settings -->
+                    <input class="tab-input hidden" type="radio" name="manage-account-tabs" id="settings-tab" hidden>
+                    <label class="tab-button btn btn-tab btn-chrome" for="settings-tab">Settings</label>
+                    <div class="tab-panel">
+                        <div class="row">
+                            <div class="col-12 offset-sm-1 col-sm-10 offset-md-1 col-md-10 offset-lg-0 col-lg-12 offset-xl-1 col-xl-10">
+                                <form class="emails-notifications-form lgp-form-alt form-row">
+                                    <div class="col-12">
+                                        <h2 class="form-header header-md-alt mb-5">Email Notifications</h2>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="form-label-caps">Email me when:</label>
+                                            <div class="custom-control custom-checkbox mt-3">
+                                                <input type="checkbox" id="email-notifications-1-input" name="email-notifications-1" class="custom-control-input" checked>
+                                                <label class="custom-control-label" for="email-notifications-1-input">Someone indicates interest in my loan request/offer</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox mt-3">
+                                                <input type="checkbox" id="email-notifications-2-input" name="email-notifications-2" class="custom-control-input" checked>
+                                                <label class="custom-control-label" for="email-notifications-2-input">Someone sends me a message or starts a conversation with me</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox mt-3">
+                                                <input type="checkbox" id="email-notifications-3-input" name="email-notifications-3" class="custom-control-input">
+                                                <label class="custom-control-label" for="email-notifications-3-input">I get a counter-offer on my loan request/offer</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox mt-3">
+                                                <input type="checkbox" id="email-notifications-4-input" name="email-notifications-4" class="custom-control-input">
+                                                <label class="custom-control-label" for="email-notifications-4-input">A loan is due for repayment</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox mt-3">
+                                                <input type="checkbox" id="email-notifications-5-input" name="email-notifications-5" class="custom-control-input">
+                                                <label class="custom-control-label" for="email-notifications-5-input">I receive payment or repayment</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <button type="submit" class="btn btn-md btn-green btn-caps btn-chrome btn-shadow w-100">Update Notfications</button>
+                                    </div>
+                                </form>
+                                <div class="divider horizontal w-100 mt-5 mb-5"></div>
+
+                                <form class="password-form lgp-form-alt form-row">
+                                    <div class="col-12">
+                                        <h2 class="form-header header-md-alt mb-5 pt-3">Password</h2>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div class="form-group">
+                                            <label class="form-label-caps" for="current-password-input">Current Password</label>
+                                            <input type="password" class="form-control form-control-md" name="current-password" id="current-password-input" value="abcde_123">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-9">
+                                        <div class="form-group">
+                                            <label class="form-label-caps" for="new-password-input">New Password</label>
+                                            <input type="password" class="form-control form-control-md" name="new-password" id="new-password-input" aria-describedby="passwordHelpBlock">
+                                            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center">
+                                                <small id="passwordHelpBlock" class="form-text">Minimum 6 characters.</small>
+                                                <div class="password-strength d-flex justify-content-sm-end align-items-center text-micro font-italic">
+                                                    <span class="caption">Password Strength</span>
+                                                    <div class="widget">
+                                                        <span class="track"></span>
+                                                        <span class="indicator" style="width: 30%"></span>
+                                                    </div>`
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4">
+                                        <button type="submit" class="btn btn-md btn-green btn-caps btn-chrome btn-shadow w-100">Change Password</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SVG sprites -->
+    <svg style="height: 0; width: 0; position: absolute; visibility: hidden" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <linearGradient id="lendgap-logo-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop stop-color="#FF2B6F" offset="0%"></stop>
+                <stop stop-color="#FF2D6E" offset="0%"></stop>
+                <stop stop-color="#FF326B" offset="42.5653272%"></stop>
+                <stop stop-color="#FF882F" offset="87.6714813%"></stop>
+                <stop stop-color="#FF8B2D" offset="100%"></stop>
+            </linearGradient>
+            <symbol id="lendgap-logo-with-gradient" viewBox="0 0 125 31">
+                <path fill="url(#lendgap-logo-gradient)" d="M2.90625,23.5641892 C0.968740313,23.5641892 0,22.6390858 0,20.7888514 C0,18.973527 1.00364987,18.0658784 3.01097973,18.0658784 C3.93609697,18.0658784 4.64737927,18.3102453 5.14484797,18.7989865 C5.64231668,19.2877277 5.8910473,19.9946463 5.8910473,20.9197635 C5.8910473,21.7750606 5.63358929,22.4296148 5.11866554,22.8834459 C4.60374179,23.337277 3.86627732,23.5641892 2.90625,23.5641892 Z M11.9915541,2.06841216 L11.9915541,22.2027027 C11.9915541,22.5518035 11.7951878,22.8790807 11.4024493,23.1845439 C11.0097109,23.4900072 10.464249,23.6427365 9.7660473,23.6427365 C9.12021073,23.6427365 8.57911254,23.5118256 8.14273649,23.25 C7.70636043,22.9881744 7.47944829,22.5954418 7.46199324,22.0717905 C7.32235291,15.8228854 7.25253378,9.99298877 7.25253378,4.58192568 L7.25253378,2.06841216 C7.25253378,1.50985081 7.48817332,1.0734813 7.95945946,0.759290541 C8.4307456,0.44509978 8.98057118,0.288006757 9.6089527,0.288006757 C10.2547893,0.288006757 10.8133422,0.44509978 11.2846284,0.759290541 C11.7559145,1.0734813 11.9915541,1.50985081 11.9915541,2.06841216 Z M17.9349662,16.2331081 C17.7080507,16.2331081 17.5945946,16.364019 17.5945946,16.6258446 C17.5945946,16.9225803 17.7080507,17.2716759 17.9349662,17.6731419 C18.8949935,19.1742755 20.2651938,19.9248311 22.0456081,19.9248311 C22.5692594,19.9248311 23.0798117,19.8637393 23.5772804,19.7415541 C24.0747491,19.6193688 24.6158473,19.4491846 25.2005912,19.2309966 C25.7853351,19.0128086 26.2435231,18.8600793 26.5751689,18.7728041 C26.8369946,18.7029839 27.116271,18.6680743 27.4130068,18.6680743 C28.2159387,18.6680743 28.7919465,19.0608069 29.1410473,19.8462838 C29.2632326,20.1081094 29.3243243,20.3699311 29.3243243,20.6317568 C29.3243243,21.2950484 28.9315918,21.8710561 28.1461149,22.3597973 C26.4878859,23.4245549 24.611497,23.9569257 22.5168919,23.9569257 C21.8710553,23.9569257 21.2165011,23.9045613 20.5532095,23.7998311 C17.1669313,23.2936349 14.8541729,21.5481568 13.6148649,18.5633446 C13.1610338,17.4113118 12.9341216,16.2942059 12.9341216,15.2119932 C12.9341216,12.8730176 13.7806785,10.8569904 15.4738176,9.16385135 C17.1669567,7.47071226 19.4186233,6.62415541 22.2288851,6.62415541 C24.8296864,6.62415541 26.9940792,7.6103505 28.7221284,9.58277027 C29.2108696,10.1587867 29.6559665,11.0489805 30.0574324,12.2533784 C30.2319829,12.6897544 30.3192568,13.3006717 30.3192568,14.0861486 C30.3192568,14.1210587 30.3148931,14.1734231 30.3061655,14.2432432 C30.297438,14.3130634 30.2930743,14.3567004 30.2930743,14.3741554 C30.2930743,15.8229239 28.3905033,16.5472973 24.5853041,16.5472973 C23.6601868,16.5472973 22.4339885,16.494933 20.9066723,16.3902027 C19.3793561,16.2854724 18.4324343,16.2331081 18.0658784,16.2331081 L17.9349662,16.2331081 Z M25.4755068,12.777027 C25.5278719,12.777027 25.597691,12.7639359 25.6849662,12.7377534 C25.7722414,12.7115708 25.8246058,12.6984797 25.8420608,12.6984797 C25.8246058,12.6810247 25.807151,12.6242967 25.7896959,12.5282939 C25.7722409,12.4322912 25.7460587,12.3755632 25.7111486,12.3581081 C24.8907617,11.08389 23.7300188,10.4467905 22.2288851,10.4467905 C21.3735881,10.4467905 20.5532134,10.6431568 19.7677365,11.0358953 C18.9822596,11.4286337 18.4586162,11.8431848 18.1967905,12.2795608 C18.1618805,12.3319259 18.1182435,12.4715642 18.0658784,12.6984797 C18.4847994,12.80321 19.5320862,12.8555743 21.2077703,12.8555743 C21.8885169,12.8555743 22.7350738,12.8424832 23.7474662,12.8163007 C24.7598587,12.7901181 25.3358664,12.777027 25.4755068,12.777027 Z M31.785473,15.316723 C31.785473,14.9850772 31.7767456,14.4832522 31.7592905,13.8112331 C31.7418355,13.139214 31.7331081,12.637389 31.7331081,12.3057432 C31.7331081,11.363171 31.7592903,10.403158 31.8116554,9.42567568 C31.8465655,8.37837314 32.082205,7.69763671 32.5185811,7.38344595 C32.7978618,7.13907535 33.4436886,7.01689189 34.4560811,7.01689189 C35.7302992,7.01689189 36.3935808,7.31362316 36.4459459,7.90709459 C36.463401,7.95945972 36.4895832,8.05982471 36.5244932,8.20819257 C36.5594033,8.35656043 36.5855855,8.4656528 36.6030405,8.53547297 C36.6903158,8.23873726 37.1135942,7.87655056 37.8728885,7.44890203 C38.6321829,7.02125349 39.5791047,6.72888592 40.7136824,6.57179054 C41.0627833,6.53688046 41.3420598,6.51942568 41.5515203,6.51942568 C43.3493896,6.51942568 44.7370447,7.11288821 45.714527,8.29983108 C46.5523691,9.27731345 47.1021946,10.4118742 47.3640203,11.7035473 C47.6258459,12.9952204 47.7567568,14.662152 47.7567568,16.7043919 C47.7567568,17.2978633 47.7436657,18.1706023 47.7174831,19.3226351 C47.6913005,20.4746679 47.6782095,21.3386796 47.6782095,21.9146959 C47.6782095,22.9969086 47.1807482,23.5380068 46.1858108,23.5380068 L46.0025338,23.5380068 C45.8628934,23.5380068 45.6621635,23.5467341 45.4003378,23.5641892 C45.1385122,23.5816442 44.9377822,23.5903716 44.7981419,23.5903716 C44.1872154,23.5903716 43.7421185,23.4332786 43.4628378,23.1190878 C43.2359223,22.8572622 43.1050114,22.5343488 43.0701014,22.1503378 C42.9653711,20.6142941 42.9042794,18.8469976 42.8868243,16.8483953 C42.8693693,14.8497929 42.8431871,13.4926838 42.808277,12.777027 C42.7733669,12.0962804 42.5071815,11.5420911 42.0097128,11.1144426 C41.5122441,10.686794 40.9406001,10.472973 40.2947635,10.472973 C39.7012921,10.472973 39.1514665,10.6562482 38.6452703,11.0228041 C37.301232,12.0002864 36.6030408,13.3704867 36.5506757,15.1334459 C36.5157656,16.4251191 36.4983108,17.385132 36.4983108,18.0135135 C36.4983108,18.4498896 36.5026745,19.1131712 36.511402,20.0033784 C36.5201295,20.8935855 36.5244932,21.5568672 36.5244932,21.9932432 C36.5244932,22.6565348 36.3324907,23.0885407 35.9484797,23.2892736 C35.5644688,23.4900066 34.9535515,23.5903716 34.1157095,23.5903716 C33.1382271,23.5903716 32.5185824,23.3940053 32.2567568,23.0012669 C31.9949311,22.6085284 31.8378381,21.7401531 31.785473,20.3961149 C31.7680179,19.9597388 31.7592905,19.3139119 31.7592905,18.4586149 C31.7592905,18.109514 31.7636542,17.5858706 31.7723818,16.8876689 C31.7811093,16.1894672 31.785473,15.6658238 31.785473,15.316723 Z M53.8834459,15.2643581 C53.8834459,16.6956716 54.2630874,17.8258686 55.0223818,18.6549831 C55.7816761,19.4840976 56.8158718,19.907376 58.125,19.9248311 L58.1511824,19.9248311 C59.3904904,19.9248311 60.4377773,19.4797342 61.2930743,18.589527 C62.1483714,17.6993199 62.5760135,16.5909413 62.5760135,15.2643581 C62.5760135,13.9377749 62.1440077,12.8163053 61.2799831,11.8999155 C60.4159585,10.9835258 59.364308,10.5253378 58.125,10.5253378 C56.8333269,10.5253378 55.8034948,10.95298 55.035473,11.808277 C54.2674511,12.6635741 53.8834459,13.8155896 53.8834459,15.2643581 Z M57.3657095,6.57179054 C57.6449901,6.57179054 57.9242666,6.58924532 58.2035473,6.62415541 C58.482828,6.65906549 58.7228312,6.69397505 58.9235642,6.72888514 C59.1242972,6.76379522 59.3599367,6.84234173 59.6304899,6.96452703 C59.901043,7.08671232 60.0974093,7.16962253 60.2195946,7.21326014 C60.3417799,7.25689774 60.5468736,7.37035381 60.8348818,7.55363176 C61.12289,7.7369097 61.2974378,7.84600208 61.3585304,7.88091216 C61.4196231,7.91582225 61.6116256,8.0467331 61.9345439,8.27364865 C62.2574622,8.5005642 62.4363737,8.62274766 62.4712838,8.6402027 C62.6109241,7.87218084 62.6807432,6.99071443 62.6807432,5.99577703 C62.6807432,5.6117661 62.6676522,5.03139465 62.6414696,4.25464527 C62.615287,3.47789589 62.6021959,2.90625183 62.6021959,2.53969595 C62.6021959,2.05095476 62.6109233,1.68440438 62.6283784,1.44003378 C62.6458334,0.968747644 62.8334723,0.610924645 63.1913007,0.366554054 C63.549129,0.122183463 63.9898622,0 64.5135135,0 C65.0197097,0 65.5040799,0.104728682 65.9666385,0.314189189 C66.4291971,0.523649696 66.7477469,0.785471402 66.9222973,1.09966216 C67.0968477,1.43130796 67.1841216,1.89385965 67.1841216,2.48733108 C67.1841216,2.80152184 67.1579395,3.24661874 67.1055743,3.82263514 C67.0532092,4.39865153 67.027027,4.7826567 67.027027,4.97466216 L67.027027,22.0717905 C67.027027,23.0143628 66.5470206,23.5030967 65.5869932,23.5380068 C65.5520832,23.5380068 65.4211723,23.5423705 65.1942568,23.551098 C64.9673412,23.5598255 64.7753386,23.5641892 64.6182432,23.5641892 C63.29166,23.5641892 62.6283784,23.2587305 62.6283784,22.6478041 C62.6283784,22.211428 62.5498319,21.9932432 62.3927365,21.9932432 C62.2705512,21.9932432 62.0698212,22.1154267 61.7905405,22.3597973 C60.5686876,23.4245549 59.1112134,23.9569257 57.4180743,23.9569257 C56.859513,23.9569257 56.3184148,23.9045613 55.7947635,23.7998311 C54.3809051,23.5380054 53.1677979,23.001271 52.1554054,22.1896115 C51.143013,21.377952 50.427367,20.3001193 50.0084459,18.9560811 C49.5197048,17.3676722 49.2753378,15.639649 49.2753378,13.7719595 C49.2753378,12.5151964 49.7946176,11.2148153 50.8331926,9.87077703 C51.8717676,8.52673878 53.0019646,7.62781758 54.2238176,7.17398649 C55.3758504,6.77252052 56.4231372,6.57179054 57.3657095,6.57179054 Z M86.21875,15.7880068 C86.21875,16.2592929 86.2274774,16.9487567 86.2449324,17.8564189 C86.2623875,18.7640811 86.2711149,19.4535449 86.2711149,19.9248311 C86.2711149,20.8150382 86.2449327,21.705232 86.1925676,22.5954392 C86.0005621,25.3358808 85.2325518,27.3257258 83.8885135,28.5650338 C82.1779194,30.1883527 80.0135266,31 77.3952703,31 C75.4577606,31 73.4940978,30.5810853 71.504223,29.7432432 C70.4743755,29.3417773 69.9594595,28.8094065 69.9594595,28.1461149 C69.9594595,27.9191993 70.0292786,27.666105 70.1689189,27.3868243 C70.6751151,26.409342 71.2598503,25.9206081 71.9231419,25.9206081 C72.2373327,25.9206081 72.7391576,26.06461 73.4286318,26.3526182 C74.1181059,26.6406264 74.6373856,26.8282653 74.9864865,26.9155405 C75.4403176,27.0202708 75.9465062,27.0726351 76.5050676,27.0726351 C77.4301848,27.0726351 78.2985601,26.9068147 79.1102196,26.5751689 C79.9218791,26.2435231 80.5197053,25.7460619 80.9037162,25.0827703 C81.2702721,24.4020236 81.4535473,23.6165585 81.4535473,22.7263514 C81.4535473,22.6041661 81.4099103,22.4994374 81.3226351,22.4121622 C81.2353599,22.324887 81.1306312,22.28125 81.0084459,22.28125 C80.9386258,22.28125 80.8600793,22.3074322 80.7728041,22.3597973 C80.7029839,22.4121624 80.471708,22.5779828 80.0789696,22.8572635 C79.6862311,23.1365442 79.402591,23.311092 79.2280405,23.3809122 C78.5123838,23.6601928 77.6920091,23.8172859 76.7668919,23.8521959 C76.7319818,23.8521959 76.6796175,23.8565596 76.6097973,23.8652872 C76.5399771,23.8740147 76.4876128,23.8783784 76.4527027,23.8783784 C74.3580976,23.8783784 72.6475292,23.2936432 71.3209459,22.1241554 C69.9943627,20.9546676 69.0954415,19.5146482 68.6241554,17.8040541 C68.3797848,16.9138469 68.2576014,16.0585627 68.2576014,15.2381757 C68.2576014,13.2133908 68.8510639,11.406821 70.0380068,9.81841216 C71.2249496,8.23000332 72.8046073,7.20889867 74.777027,6.75506757 C75.4228636,6.61542723 75.990144,6.54560811 76.4788851,6.54560811 C78.1720242,6.54560811 79.7342271,7.15652542 81.1655405,8.37837838 C81.2004506,8.39583342 81.2659061,8.40456081 81.3619088,8.40456081 C81.4579115,8.40456081 81.5146396,8.38710603 81.5320946,8.35219595 C81.68919,7.88090981 81.9902849,7.49690464 82.4353885,7.20016892 C82.8804921,6.9034332 83.3561349,6.75506757 83.8623311,6.75506757 C84.4732576,6.75506757 85.0012647,6.97761602 85.4463682,7.42271959 C85.8914718,7.86782317 86.1314751,8.3783755 86.1663851,8.95439189 C86.2187503,9.96678434 86.2449324,11.2322559 86.2449324,12.7508446 L86.21875,15.7880068 Z M77.0810811,19.9510135 L77.2119932,19.9510135 C78.5560315,19.9510135 79.6164094,19.5059166 80.3931588,18.6157095 C81.1699082,17.7255023 81.558277,16.6694881 81.558277,15.4476351 C81.558277,14.0163217 81.1568171,12.8424877 80.3538851,11.926098 C79.5509532,11.0097083 78.5211211,10.5340655 77.2643581,10.4991554 L77.1596284,10.4991554 C76.0250506,10.4991554 75.0301282,10.9267975 74.1748311,11.7820946 C73.319534,12.6373917 72.8918919,13.7021333 72.8918919,14.9763514 L72.8918919,15.2381757 C72.8918919,16.6520341 73.2758971,17.7822311 74.0439189,18.6288007 C74.8119408,19.4753702 75.824318,19.9161034 77.0810811,19.9510135 Z M91.9527027,15.3429054 C91.9527027,16.7742189 92.3236168,17.8956885 93.0654561,18.707348 C93.8072954,19.5190074 94.8240363,19.9248311 96.1157095,19.9248311 C97.5470229,19.9248311 98.6510378,19.4710068 99.4277872,18.5633446 C100.204537,17.6556824 100.592905,16.5211217 100.592905,15.1596284 C100.592905,13.74577 100.169627,12.6461188 99.3230574,11.8606419 C98.4764879,11.075165 97.4684743,10.6824324 96.2989865,10.6824324 C95.1120436,10.6824324 94.090939,11.0926198 93.2356419,11.9130068 C92.3803448,12.7333937 91.9527027,13.8766819 91.9527027,15.3429054 Z M105.096284,15.2643581 C105.096284,15.5785489 105.135557,16.220012 105.214105,17.1887669 C105.292652,18.1575217 105.331926,18.912441 105.331926,19.4535473 C105.331926,21.6005175 104.773373,22.9445356 103.65625,23.4856419 C103.411879,23.5903721 103.132603,23.6427365 102.818412,23.6427365 C102.434401,23.6427365 102.094033,23.5903721 101.797297,23.4856419 C101.465651,23.3809116 101.190739,23.1670906 100.972551,22.8441723 C100.754363,22.521254 100.627815,22.1765221 100.592905,21.8099662 L100.043074,22.2027027 C98.8037663,23.3721905 97.276473,23.9569257 95.4611486,23.9569257 C94.9724075,23.9569257 94.3789449,23.8958339 93.6807432,23.7736486 C91.114852,23.3023625 89.2471905,21.8187062 88.0777027,19.3226351 C87.4318661,17.9611418 87.1089527,16.6083964 87.1089527,15.2643581 C87.1089527,13.3443035 87.7460522,11.6380987 89.0202703,10.1456926 C90.2944884,8.65328646 91.9963294,7.54054421 94.1258446,6.80743243 C94.6669509,6.63288201 95.1905943,6.54560811 95.6967905,6.54560811 C96.9710086,6.54560811 98.3935732,7.11288847 99.964527,8.24746622 C100.034347,8.29983134 100.14344,8.40019633 100.291807,8.54856419 L100.592905,8.84966216 C100.627815,8.18637056 100.854728,7.68018193 101.273649,7.33108108 C101.69257,6.98198024 102.181304,6.80743243 102.739865,6.80743243 C103.368246,6.80743243 103.918072,7.0168898 104.389358,7.43581081 C104.860644,7.85473182 105.096284,8.43073958 105.096284,9.16385135 L105.096284,15.2643581 Z M106.929054,8.22128378 C106.963964,7.8547279 107.243241,7.4969049 107.766892,7.14780405 C108.290543,6.79870321 108.849096,6.62415541 109.442568,6.62415541 C110.088404,6.62415541 110.629502,6.87724972 111.065878,7.38344595 C111.135699,7.47072116 111.201154,7.58854092 111.262247,7.73690878 C111.323339,7.88527664 111.384431,7.99873272 111.445524,8.07728041 C111.506616,8.1558281 111.589527,8.19510135 111.694257,8.19510135 C111.868807,8.19510135 112.086992,8.09910006 112.348818,7.90709459 C113.588126,6.94706727 114.975781,6.46706081 116.511824,6.46706081 C117.122751,6.46706081 117.768578,6.54560732 118.449324,6.7027027 C121.172311,7.34853927 123.0487,8.94565167 124.078547,11.4940878 C124.497468,12.5588454 124.706926,13.7108609 124.706926,14.9501689 C124.706926,17.044774 124.253101,18.8077068 123.345439,20.2390203 C122.437777,21.6703337 121.172305,22.6739836 119.548986,23.25 C118.76351,23.5118256 117.847134,23.6427365 116.799831,23.6427365 C116.136539,23.6427365 115.551804,23.6078269 115.045608,23.5380068 C114.748872,23.5030967 114.242684,23.2587297 113.527027,22.8048986 C112.81137,22.3510676 112.287727,22.1241554 111.956081,22.1241554 C111.868806,22.1241554 111.790259,23.0099855 111.720439,24.7816723 C111.650619,26.5533591 111.615709,27.7271931 111.615709,28.3032095 C111.598254,28.9665011 111.46298,29.4901445 111.209882,29.8741554 C110.956784,30.2581663 110.498596,30.4763511 109.835304,30.5287162 C109.678209,30.5461713 109.451297,30.5548986 109.154561,30.5548986 C108.63091,30.5548986 108.203267,30.506898 107.871622,30.4108953 C107.539976,30.3148925 107.299973,30.1534358 107.151605,29.9265203 C107.003237,29.6996047 106.907236,29.4770563 106.863598,29.2588682 C106.81996,29.0406802 106.798142,28.7395853 106.798142,28.3555743 C106.798142,28.1635689 106.793778,27.6442891 106.785051,26.7977196 C106.776323,25.95115 106.771959,25.2049582 106.771959,24.5591216 C106.771959,17.1581837 106.824324,11.7122922 106.929054,8.22128378 Z M115.883446,19.7939189 L116.171453,19.7939189 C117.480581,19.7939189 118.458049,19.3270035 119.103885,18.3931588 C119.749722,17.459314 120.107545,16.3727539 120.177365,15.1334459 L120.177365,14.8716216 C120.177365,13.7021338 119.788996,12.6897565 119.012247,11.8344595 C118.235497,10.9791624 117.323485,10.5166107 116.276182,10.4467905 L115.857264,10.4467905 C114.49577,10.4467905 113.431029,10.8831601 112.663007,11.7559122 C111.894985,12.6286643 111.51098,13.6846785 111.51098,14.9239865 L111.51098,15.0548986 C111.54589,16.5734873 111.938622,17.7429576 112.689189,18.5633446 C113.439756,19.3837316 114.504498,19.7939189 115.883446,19.7939189 Z"></path>
+            </symbol>
+            <symbol id="mart" viewBox="0 0 32 30">
+                <path d="M24.4583069,14.5461561 L15.1574152,7.48793104 C15.7501343,6.46131136 15.8888156,5.03567015 15.5416951,3.74019909 C14.8040642,0.987323103 12.1348531,-0.553746674 9.3819771,0.183884225 C6.62910111,0.921515124 5.08803133,3.59072627 5.82566223,6.34360227 C6.21617271,7.8010072 7.16763861,8.76098416 8.23764833,9.51563719 L4.05463782,20.0133028 C1.09643789,20.6323898 -0.563175715,23.5069249 0.174455183,26.2598009 C0.912086082,29.0126769 3.58129723,30.5537467 6.33417322,29.8161158 C8.43931369,29.2520451 9.87346597,27.4792835 10.0005209,25.3625167 L22.3074959,22.0648726 C23.475912,23.834519 25.6043052,24.6526995 27.7094456,24.0886288 C30.4623216,23.3509979 32.0033914,20.6817867 31.2657605,17.9289108 C30.5281296,15.1760348 27.4482706,13.3978773 24.4583069,14.5461561 Z M11.8234464,9.94330719 L12.7950497,9.68296687 L22.0959414,16.7411919 C21.7403099,17.3571637 21.5900024,18.0916794 21.4396948,18.826195 L9.1327198,22.123839 C8.63529183,21.5628836 8.13786385,21.0019282 7.31656811,20.5277529 L11.8234464,9.94330719 Z"></path>
+            </symbol>
+            <symbol id="arrow-right" viewBox="0 0 32 30">
+                <path d="M31.4310601,14.5269712 C31.4226132,14.4734739 31.4169819,14.4171609 31.4057193,14.3664792 C31.3944567,14.3157976 31.3803785,14.256669 31.3663002,14.2031717 C31.352222,14.1496744 31.343775,14.1074396 31.3325124,14.0623893 C31.3212499,14.0173389 31.295909,13.9582103 31.2790151,13.9075287 C31.2621213,13.856847 31.248043,13.8146123 31.2283335,13.7667463 C31.2086239,13.7188803 31.1860988,13.6738299 31.1607579,13.6259639 C31.1354171,13.5780979 31.1157076,13.5302318 31.0931824,13.4851815 C31.0706572,13.4401311 31.0396851,13.3978964 31.0171599,13.352846 C30.9946347,13.3077957 30.9636626,13.2599297 30.9326905,13.2176949 C30.9017183,13.1754602 30.8510367,13.1360412 30.8285115,13.0740969 C30.8059863,13.0121527 30.7665672,13.0121527 30.7327795,12.9783649 L18.6874382,0.933023604 C17.4434067,-0.311007868 15.4264332,-0.311007868 14.1824017,0.933023604 C12.9383702,2.17705508 12.9383702,4.19402861 14.1824017,5.43806008 L20.5711066,11.8267649 L3.18731331,11.8014241 C1.42700877,11.8014241 0,13.2284329 0,14.9887374 C0,16.7490419 1.42700877,18.1760507 3.18731331,18.1760507 L20.5936317,18.1732351 L14.2049269,24.5619399 C12.9608954,25.8059714 12.9608954,27.8229449 14.2049269,29.0669764 C15.4489584,30.3110079 17.4659319,30.3110079 18.7099634,29.0669764 L30.7581203,17.0188195 L30.9439531,16.7710425 L31.104445,16.5035559 L31.1748362,16.3599579 L31.2395961,16.2219911 L31.2930934,16.0783931 L31.343775,15.9263481 L31.3803785,15.7827501 L31.4197975,15.6250738 L31.4423227,15.4617662 L31.4648479,15.3153526 C31.4732948,15.2224362 31.4789261,15.1267042 31.4789261,15.0366034 C31.4648479,14.8930054 31.4592166,14.7972734 31.4507697,14.704357 L31.4310601,14.5269712 Z"></path>
+            </symbol>
+            <symbol id="arrow-up" viewBox="0 0 16 16">
+                <path d="M9.53420261,14.6682174 C9.78448282,14.4535618 9.92357349,14.1367441 9.91220261,13.8072174 L9.91220261,6.63421735 L12.9122026,9.62021735 C13.1552959,9.87174307 13.491433,10.01177 13.8412026,10.0072174 C14.1902802,10.0112172 14.5255883,9.87123421 14.7682026,9.62021735 L15.5242026,8.85621735 C15.7721967,8.61354129 15.9119743,8.28119395 15.9119743,7.93421735 C15.9119743,7.58724075 15.7721967,7.25489342 15.5242026,7.01221735 L8.88520261,0.379217352 C8.63810368,0.134603343 8.30389508,-0.00174225356 7.95620261,0.000217352227 C7.61099023,-0.00621127852 7.27844723,0.130207339 7.03720261,0.377217352 L0.378202607,7.01121735 C0.133506593,7.25736732 -0.00259757741,7.5911466 0.00020260737,7.93821735 C-0.00600872069,8.28300082 0.130831146,8.6149642 0.378202607,8.85521735 L1.15420261,9.62021735 C1.39601485,9.86792035 1.727538,10.0075845 2.07370261,10.0075845 C2.41986721,10.0075845 2.75139037,9.86792035 2.99320261,9.62021735 L5.99320261,6.63521735 L5.99320261,13.8072174 C5.98356115,14.1379036 6.125317,14.4549212 6.37820261,14.6682174 C6.63436304,14.8896588 6.96368509,15.0079866 7.30220261,15.0002174 L8.61220261,15.0002174 C8.95003561,15.007488 9.27855754,14.8891916 9.53420261,14.6682174 Z"></path>
+            </symbol>
+            <symbol id="history" viewBox="0 0 30 30">
+                <path d="M15,0 C6.729,0 0,6.72733333 0,14.9983333 C0,23.2693333 6.729,30 15,30 C23.271,30 30,23.2693333 30,14.9983333 C30,6.72733333 23.271,0 15,0 Z M15.0013892,4 C8.93498913,4 4,8.93498913 4,15.0001544 C4,21.0680979 8.93498913,26 15.0013892,26 C21.0677892,26 26.0027784,21.0680979 26.0027784,15.0001544 C26.0027784,8.93498913 21.0677892,4 15.0013892,4 Z M16.0246667,16.0533333 L8.49,16.0533333 L8.49,14.004 L13.9756667,14.004 L13.9756667,4.803 L16.025,4.803 L16.025,16.0533333 L16.0246667,16.0533333 Z"
+                    fill-rule="evenodd"></path>
+            </symbol>
+            <symbol id="account" viewBox="0 0 30 30">
+                <path d="M15,30 C23.2842712,30 30,23.2842712 30,15 C30,6.71572875 23.2842712,0 15,0 C6.71572875,0 0,6.71572875 0,15 C0,23.2842712 6.71572875,30 15,30 Z M23.3444124,23.6238637 C21.1848734,25.7138532 18.2426346,27 15,27 C11.7294559,27 8.76450081,25.691618 6.6,23.5697194 L6.6,20.5535959 C6.6,19.8402547 6.83526548,19.1794832 7.30547195,18.571038 C7.77567842,17.9625928 8.41657405,17.4819211 9.22815884,17.1290228 C10.0394191,16.776368 10.9204478,16.5996755 11.8715694,16.5996755 L18.0728431,16.5996755 C19.0239646,16.5996755 19.9049933,16.776368 20.7162536,17.1290228 C21.5275139,17.4819211 22.1684095,17.9625928 22.6389405,18.571038 C23.1088225,19.1794832 23.3444124,19.8402547 23.3444124,20.5535959 L23.3444124,23.6238637 Z M12.8734353,14.4080558 C12.2338377,14.03228 11.7259076,13.52435 11.3498885,12.8849957 C10.9738693,12.2451547 10.7862248,11.5459295 10.7862248,10.7858597 C10.7862248,10.0262767 10.9738693,9.32656472 11.3498885,8.68721048 C11.7259076,8.04761287 12.2338377,7.53992618 12.8734353,7.16366365 C13.5127895,6.78788788 14.2125015,6.6 14.9720845,6.6 C15.7319109,6.6 16.4313795,6.78788788 17.0709772,7.16366365 C17.7105748,7.53992618 18.2182615,8.04761287 18.5942806,8.68721048 C18.9702998,9.32656472 19.1581876,10.0262767 19.1581876,10.7858597 C19.1581876,11.5459295 18.9702998,12.2451547 18.5942806,12.8849957 C18.2182615,13.52435 17.7105748,14.03228 17.0709772,14.4080558 C16.4313795,14.7843183 15.7319109,14.9722062 14.9720845,14.9722062 C14.2125015,14.9722062 13.5127895,14.7843183 12.8734353,14.4080558 Z"
+                    fill-rule="evenodd"></path>
+            </symbol>
+            <symbol id="star" viewBox="0 0 16 16">
+                <path d="M8.96457348,0.615326721 L10.5834005,4.0837339 C10.7341545,4.40657487 11.0353068,4.63270578 11.3865919,4.68674964 L15.0948187,5.25669907 C15.9509873,5.38825321 16.3008502,6.43535307 15.6967678,7.05792416 L12.9440863,9.89487145 C12.708711,10.1373577 12.6018677,10.477443 12.6560894,10.8116616 L13.2960825,14.7575748 C13.4388365,15.6380986 12.5065799,16.2960471 11.7286327,15.8636962 L8.51622274,14.0781154 C8.19515952,13.8996284 7.80494149,13.8996284 7.48387828,14.0781154 L4.27146835,15.8635184 C3.49352116,16.2958693 2.56108673,15.6379209 2.70401853,14.757397 L3.34401165,10.8114838 C3.39823329,10.477443 3.29138999,10.1373577 3.05601475,9.89469368 L0.302977661,7.05792416 C-0.301104737,6.43535307 0.0487581705,5.38825321 0.904926748,5.25669907 L4.61315357,4.68674964 C4.96443868,4.63270578 5.26576878,4.40657487 5.41634494,4.0837339 L7.03517199,0.615326721 C7.41827898,-0.205108907 8.58164426,-0.205108907 8.96457348,0.615326721 Z"></path>
+            </symbol>
+            <symbol id="avatar" viewBox="0 0 40 40">
+                <path d="M6,29.2559932 C6,28.0670912 6.39210914,26.9658054 7.17578658,25.95173 C7.95946403,24.9376546 9.02762341,24.1365351 10.3802647,23.5483714 C11.7323652,22.9606133 13.2007464,22.6661258 14.785949,22.6661258 L25.1214051,22.6661258 C26.7066077,22.6661258 28.1749888,22.9606133 29.5270893,23.5483714 C30.8791898,24.1365351 31.9473492,24.9376546 32.7315675,25.95173 C33.5147041,26.9658054 33.9073541,28.0670912 33.9073541,29.2559932 L33.9073541,40 L6,40 L6,29.2559932 Z M16.4557255,19.0134264 C15.3897294,18.3871334 14.5431793,17.5405833 13.9164808,16.4749929 C13.2897822,15.4085912 12.9770413,14.2432158 12.9770413,12.9764329 C12.9770413,11.7104612 13.2897822,10.5442745 13.9164808,9.47868414 C14.5431793,8.41268811 15.3897294,7.56654363 16.4557255,6.93943942 C17.5213159,6.31314647 18.6875025,6 19.9534742,6 C21.2198515,6 22.3856326,6.31314647 23.4516286,6.93943942 C24.5176246,7.56654363 25.3637691,8.41268811 25.9904677,9.47868414 C26.6171663,10.5442745 26.9303127,11.7104612 26.9303127,12.9764329 C26.9303127,14.2432158 26.6171663,15.4085912 25.9904677,16.4749929 C25.3637691,17.5405833 24.5176246,18.3871334 23.4516286,19.0134264 C22.3856326,19.6405306 21.2198515,19.953677 19.9534742,19.953677 C18.6875025,19.953677 17.5213159,19.6405306 16.4557255,19.0134264 Z"></path>
+            </symbol>
+            <symbol id="notification" viewBox="0 0 26 30">
+                <path d="M12.7457627,30 C14.4067797,30 15.7627119,28.6440678 15.7627119,26.9830508 L9.72881356,26.9830508 C9.72881356,28.6440678 11.0847458,30 12.7457627,30 Z M22.4745763,20.9830508 L22.4745763,12.7457627 C22.4745763,8.13559322 19.2881356,4.27118644 14.9830508,3.25423729 L14.9830508,2.23728814 C14.9830508,0.983050847 13.9661017,0 12.7457627,0 C11.5254237,0 10.5084746,1.01694915 10.5084746,2.23728814 L10.5084746,3.25423729 C6.20338983,4.27118644 3.01694915,8.13559322 3.01694915,12.7457627 L3.01694915,20.9830508 L0,24 L0,25.4915254 L25.4915254,25.4915254 L25.4915254,24 L22.4745763,20.9830508 Z"></path>
+            </symbol>
+            <symbol id="facebook" viewBox="0 0 30 30">
+                <path d="M1.65575685,30 C0.741039659,30 0,29.2584947 0,28.3441267 L0,1.65575685 C0,0.741156065 0.741156065,0 1.65575685,0 L28.3441267,0 C29.2584947,0 29.9997672,0.741156065 29.9997672,1.65575685 L29.9997672,28.3441267 C29.9997672,29.2586111 29.2583783,30 28.3441267,30 L20.6994052,30 L20.6994052,18.4987525 L24.5988848,18.4987525 L25.1827766,13.9711469 L20.6994052,13.9711469 L20.6994052,11.0805567 C20.6994052,9.76971042 21.0634063,8.87641191 22.943128,8.87641191 L25.3406229,8.87536425 L25.3406229,4.82583744 C24.9259853,4.77066107 23.5028073,4.64738727 21.8470505,4.64738727 C18.3903787,4.64738727 16.0238477,6.75735976 16.0238477,10.6321614 L16.0238477,13.9711469 L12.1143571,13.9711469 L12.1143571,18.4987525 L16.0238477,18.4987525 L16.0238477,30 L1.65575685,30 Z"
+                    fill-rule="evenodd"></path>
+            </symbol>
+            <symbol id="google" viewBox="0 0 30 30">
+                <path d="M14.9939731,12.8569794 C14.9834789,14.5570445 14.9939731,16.2676039 15.0044674,17.967669 C17.8588977,18.062117 20.7238222,18.0201401 23.5782525,18.062117 C22.318945,24.4006313 13.6926887,26.4575002 9.13819335,22.3122798 C4.44727299,18.6812765 4.6676518,10.7161567 9.54746828,7.34750922 C12.9580927,4.6295039 17.8064265,5.30113456 21.2170509,7.65184186 C22.5603122,6.41352283 23.8091255,5.09124998 25.0159618,3.71650598 C22.18252,1.44975252 18.698436,-0.155864522 14.9939731,0.0120431418 C7.27022059,-0.250312583 0.165627554,6.51846512 0.039696806,14.2527119 C-0.453531957,20.5702378 3.70218273,26.7618329 9.56845674,28.9971037 C15.4137423,31.2428687 22.9066218,29.7107112 26.6320731,24.4635967 C29.0982169,21.1474204 29.6229284,16.8762692 29.3395842,12.8674737 C24.5542158,12.835991 19.7688473,12.8464852 14.9939731,12.8569794 Z"
+                    fill-rule="evenodd"></path>
+            </symbol>
+            <symbol id="linked-in" viewBox="0 0 30 30">
+                <path d="M1.1393141e-14,2.14901322 C1.1393141e-14,0.962466094 0.986277208,0 2.20296904,0 L27.607905,0 C28.8245567,0 29.810874,0.962466094 29.810874,2.14901322 L29.810874,27.8509868 C29.810874,29.0379348 28.8245567,30 27.607905,30 L2.20296904,30 C0.986277208,30 0,29.0379348 0,27.8509868 L0,2.14901322 L1.1393141e-14,2.14901322 Z M9.03659856,25.1131095 L9.03659856,11.5664293 L4.53393284,11.5664293 L4.53393284,25.1131095 L9.03659856,25.1131095 L9.03659856,25.1131095 Z M6.78524566,9.71685886 C8.35541629,9.71685886 9.33271423,8.67662582 9.33271423,7.37663518 C9.30345141,6.04738171 8.35541629,5.03601064 6.8150296,5.03601064 C5.27480324,5.03601064 4.26776146,6.04738171 4.26776146,7.37663518 C4.26776146,8.67662582 5.24485896,9.71685886 6.75590267,9.71685886 L6.78516549,9.71685886 L6.78524566,9.71685886 Z M11.5280669,25.1131095 L16.0306926,25.1131095 L16.0306926,17.5480699 C16.0306926,17.1432007 16.0599554,16.7387325 16.1788506,16.4493112 C16.5043493,15.6403747 17.2452197,14.8025762 18.4890899,14.8025762 C20.1183875,14.8025762 20.7701466,16.0448429 20.7701466,17.8659522 L20.7701466,25.1131095 L25.2724114,25.1131095 L25.2724114,17.3456353 C25.2724114,13.1847032 23.0510429,11.2485469 20.0886436,11.2485469 C17.6595893,11.2485469 16.5932201,12.6062614 16.0007483,13.5310466 L16.0308128,13.5310466 L16.0308128,11.5664293 L11.5281872,11.5664293 C11.587274,12.837558 11.5281872,25.1131095 11.5281872,25.1131095 L11.5280669,25.1131095 Z"
+                    fill-rule="evenodd"></path>
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/sidebar.js"></script>
+</body>
+
+</html>

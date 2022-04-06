@@ -1,0 +1,301 @@
+
+.btn {
+  appearance: none;
+  outline: none;
+  font-family: $font-family-button;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: $button-size-normal;
+  padding: 0 $button-size-normal;
+  border-radius: $component-border-radius;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  transition: $component-hover-fx-duration;
+
+  > .icon {
+    width: $button-icon-size;
+    height: $button-icon-size;
+    transition: $component-hover-fx-duration;
+  }
+  > :not(:first-child) {
+    margin-left: $button-icon-size;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+
+// -------------------------------------------------------------------------
+// Button styles / effects:
+// -------------------------------------------------------------------------
+
+.btn.btn-caps {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: .7rem;
+  letter-spacing: 0.075rem;
+}
+.btn.btn-space-text {
+  letter-spacing: 0.075rem;
+}
+.btn.btn-chrome {
+  &::before {
+    @include position(absolute, null 0 0 0);
+    content: '';
+    background-color: $color-black;
+    z-index: -1;
+    height: 0;
+    opacity: 0;
+    transition: $component-hover-fx-duration;
+  }
+  &:hover::before {
+    height: 50%;
+    opacity: .05;
+  }
+  &:focus::before,
+  &:active::before {
+    height: 100%;
+    opacity: .1;
+  }
+}
+.btn.btn-shadow {
+  &, &:focus {
+    box-shadow: $button-box-shadow;
+  }
+}
+.btn.icon-align-left {
+  .icon {
+    width: 18px;
+    height: 18px;
+    transform: translateY(-50%);
+    @include position(absolute, 50% null null 15px);
+  }
+}
+
+// -------------------------------------------------------------------------
+// Button sizes
+// -------------------------------------------------------------------------
+
+.btn.btn-sm {
+  height: $button-size-sm;
+  padding: 0 $button-size-sm;
+}
+.btn.btn-md {
+  height: $button-size-md;
+  padding: 0 $button-size-md;
+}
+.btn.btn-lg {
+  height: $button-size-lg;
+  padding: 0 $button-size-lg;
+}
+
+
+// -------------------------------------------------------------------------
+// Button colors themes and styles
+// -------------------------------------------------------------------------
+
+// Theme colors  for the @btn-color-themes are specified as follows:
+// theme-name: foreground-color background-color border-color
+// WHERE: theme-name can be either $normal, $hover, $active or $focus.
+
+.btn.btn-green {
+  @include btn-color-themes(
+    $normal: $color-white $color-brand-green null,
+    $hover: $color-white null null
+  );
+}
+.btn.btn-fuchsia {
+  @include btn-color-themes(
+    $normal: $color-white $color-brand-fuchsia null,
+    $hover: $color-white null null
+  );
+}
+.btn.btn-white {
+  @include btn-color-themes(
+    $normal: $color-brand-blue $color-white null,
+    $hover: $color-brand-fuchsia null null
+  );
+}
+.btn.btn-trans-white {
+  transition: $component-hover-fx-duration;
+  @include btn-color-themes(
+    $normal: $color-white transparent null,
+    $hover: $color-brand-blue null null
+  );
+}
+.btn.btn-trans-alt {
+  transition: $component-hover-fx-duration;
+  @include btn-color-themes(
+    $normal: $color-brand-grey-dark transparent null,
+    $hover: $color-brand-fuchsia null null
+  );
+}
+.btn.btn-trans-fuchsia {
+  transition: $component-hover-fx-duration;
+  @include btn-color-themes(
+    $normal: $color-brand-fuchsia transparent null,
+    $hover: $color-brand-blue null null
+  );
+}
+.btn.btn-trans-grey {
+  transition: $component-hover-fx-duration;
+  @include btn-color-themes(
+    $normal: $color-brand-grey-light transparent null,
+    $hover: $color-brand-fuchsia null null
+  );
+}
+.btn.btn-trans-blue {
+  transition: $component-hover-fx-duration;
+  @include btn-color-themes(
+    $normal: $color-brand-blue transparent null,
+    $hover: $color-brand-fuchsia null null
+  );
+}
+.btn.btn-trans-border-fuchsia {
+  transition: $component-hover-fx-duration;
+  @include btn-color-themes(
+    $normal: $color-brand-fuchsia transparent $color-brand-fuchsia,
+    $hover: $color-brand-fuchsia null null
+  );
+}
+.btn.btn-trans-border-green {
+  transition: $component-hover-fx-duration;
+  @include btn-color-themes(
+    $normal: $color-brand-green transparent $color-brand-green,
+    $hover: $color-brand-green null null
+  );
+}
+.btn.btn-trans-border-white {
+  transition: $component-hover-fx-duration;
+  @include btn-color-themes(
+    $normal: $color-white transparent $color-white,
+    $hover: $color-white null null
+  );
+}
+.btn.btn-grey {
+  @include btn-color-themes(
+    $normal: $color-brand-blue $color-brand-grey-light null,
+    $hover: $color-brand-fuchsia null null
+  );
+}
+.btn.btn-grey-white {
+  @include btn-color-themes(
+    $normal: $color-white $color-brand-grey-dark null
+  );
+}
+.btn.btn-facebook {
+  @include btn-color-themes(
+    $normal: $color-white $color-facebook null,
+    $hover: $color-white $color-facebook null null
+  );
+}
+.btn.btn-google {
+  @include btn-color-themes(
+    $normal: $color-white $color-google null,
+    $hover: $color-white $color-google null null
+  );
+}
+.btn.btn-linked-in {
+  @include btn-color-themes(
+    $normal: $color-white $color-linked-in null,
+    $hover: $color-white $color-linked-in null null
+  );
+}
+
+.btn.btn-icon {
+  padding: $button-size-normal / 2;
+
+  > .icon {
+    width: $component-icon-size-md;
+    height: $component-icon-size-md;
+  }
+}
+.btn.btn-tab {
+  transition: $component-hover-fx-duration;
+  border-radius: 0;
+  margin: 0;
+  padding: 0 $button-size-normal;
+  @include fluid-prop(padding-left, 15px, $button-size-normal);
+  @include fluid-prop(padding-right, 15px, $button-size-normal);
+
+
+  @include btn-color-themes(
+    $normal: $color-brand-blue $color-brand-grey-light null,
+    $hover: $color-brand-fuchsia null null
+  );
+
+  &:first-of-type {
+    border-radius: $component-border-radius 0 0 $component-border-radius;
+  }
+  &:last-of-type {
+    border-radius: 0 $component-border-radius $component-border-radius 0;
+  }
+
+  .tab-input:checked + & {
+    pointer-events: none;
+    @include btn-color-themes($normal: $color-white $color-brand-fuchsia null);
+  }
+}
+.btn.btn-toggle {
+  padding: 0 ($button-size-normal / 2);
+  @include btn-color-themes($normal: $color-brand-grey-dark transparent null);
+
+  .toggle-input:checked + & {
+    @include btn-color-themes($normal: $color-brand-blue null null);
+  }
+
+  &:last-child {
+    margin-right: - ($button-size-normal / 2);
+  }
+}
+
+.btn.btn-sidebar {
+  border-radius: 0;
+  height: $button-size-lg;
+  width: 100%;
+  padding: 0 0 0 $button-size-lg / 2;
+  margin: 0;
+  justify-content: flex-start;
+
+  @include btn-color-themes(
+    $normal: $color-brand-grey-light transparent null,
+    $hover: $color-brand-grey-light $color-brand-teal null null
+  );
+
+  > .icon {
+    fill: $color-brand-fuchsia;
+    width: $component-icon-size-md;
+    height: $component-icon-size-md;
+  }
+  > :not(:first-child) {
+    margin-left: $component-icon-size-lg;
+  }
+
+  &.active, .active > & {
+    // pointer-events: none;
+    @include btn-color-themes($color-white $color-brand-fuchsia null);
+  }
+}
+
+.btn.btn-input-group {
+  @include btn-color-themes(
+    $normal: $color-brand-blue $color-white rgba($color-brand-grey-light, $form-control-blur-opacity),
+    $hover: $color-brand-fuchsia null $color-brand-grey-light
+  );
+}
+
+.btn.close{
+  .icon {
+    width: 15px;
+    height: 15px;
+  }
+}

@@ -1,0 +1,30 @@
+
+.lgp-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+
+  .tab-button {
+    order: 1;
+    
+    &:not(:first-of-type) {
+      margin-left: 1px;
+    }
+  }
+  .tab-input:not(:checked) + .tab-button + .tab-panel {
+    display: none;
+  }
+  .tab-panel {
+    order: 3;
+  }
+  .tab-input:not(:checked) + .tab-button + .tab-panel {
+    display: none;
+  }
+  > :not(.tab-input):not(.tab-button) {
+    width: 100%;
+  }
+  > :not(.tab-input):not(.tab-button):not(.tab-panel) {
+    order: 2;
+  }
+}

@@ -1,0 +1,85 @@
+.loan-modal {
+  font-family: $font-family-card;
+  font-size: 1em;
+
+  .bookmark-toggle .icon-wrapper {
+    position: relative;
+    width: $component-icon-size-lg;
+    height: $component-icon-size-lg;
+  }
+
+  .details {
+    background-color: $color-white;
+  }
+  .actions {
+    background-color: $color-brand-ash;
+  }
+  .content-section {
+    height: 100%;
+    @include fluid-prop(padding, 30px, 70px);
+  }
+  .details {
+    position: relative;
+    width: 100%;
+  }
+  .section-header {
+    margin-bottom: 1.8rem;
+  }
+  .title {
+    color: $color-brand-blue;
+    margin-bottom: .2rem;
+  }
+  .detail {
+      margin-top: .1rem;
+
+    &.separate {
+      @include fluid-prop(margin-top, 20px, 35px);
+    }
+    &.separate-more {
+      @include fluid-prop(margin-top, 35px, 70px);
+    }
+  }
+
+  .profile-name {
+    margin-left: 15px;
+    color: $color-brand-blue;
+  }
+  .profile-photo {
+    width: $button-size-normal;
+    height: $button-size-normal;
+    @include fluid-prop(width, 30px, 40px);
+    @include fluid-prop(height,  30px, 40px);
+
+    .avatar {
+      fill: $color-white;
+      background-color: transparent;
+    }
+  }
+
+  .rating {
+    display: flex;
+
+    .icon {
+      fill: $color-brand-grey-light;
+      width: $component-icon-size-xs;
+      height: $component-icon-size-xs;
+
+      &:not(:first-child) {
+        @include fluid-prop(margin-left, 2px, 5px, $grid-breakpoint-md);
+      }
+    }
+    @for $i from 1 through 5 {
+      &.stars-#{$i} .icon:nth-child(-n + #{$i}) {
+        fill: $color-brand-blue;
+      }
+    }
+  }
+
+  .ctas {
+    margin-top: 30px;
+    
+    .btn {
+      margin-top: 10px;
+    }
+  }
+}

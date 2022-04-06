@@ -1,0 +1,42 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  @include fluid-prop(font-size, $font-size-base-min, $font-size-base-max);
+  font-family: $font-family-base;
+  font-weight: 300;
+  line-height: 1.5;
+  color: $color-brand-grey-dark;
+}
+
+body {
+  background-color: $color-brand-blue;
+
+  ::selection {
+    background-color: $color-brand-blue;
+    color: $color-white;
+  }
+}
+
+ol, ul {
+	list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+a, a:hover, a:active, a:focus {
+  color: unset;
+  text-decoration: none;
+}
+
+
+
+// bootstrap overrides:
+label {
+  margin-bottom: unset;
+}
+.close {
+  opacity: 1;
+}

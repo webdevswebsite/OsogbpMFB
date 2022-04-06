@@ -1,0 +1,20 @@
+// -------------------------------------------------------------------------
+// Page
+// -------------------------------------------------------------------------
+
+.transactions.page {
+  min-height: 100%;
+}
+
+
+// -------------------------------------------------------------------------
+// Transactions section
+// -------------------------------------------------------------------------
+
+.transactions.page-section .content {
+  padding-top: 40px;
+}
+.transactions .tab-panel {
+  @include fluid-prop(margin-top, 30px, 50px, $grid-breakpoint-md);
+  position: relative;
+}

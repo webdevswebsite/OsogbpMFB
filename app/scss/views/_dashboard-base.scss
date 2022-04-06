@@ -1,0 +1,113 @@
+// -------------------------------------------------------------------------
+// Page layout
+// -------------------------------------------------------------------------
+
+.dashboard-page {
+  min-height: 100%;
+  padding-top: $nav-header-height;
+}
+
+.prompt-page {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+
+  .page-section {
+    @include fluid-prop(padding-top, 0px, 70px, $grid-breakpoint-sm);
+    @include fluid-prop(padding-bottom, 0px, 70px, $grid-breakpoint-sm);
+  }
+}
+
+// -------------------------------------------------------------------------
+// Navbar Elements
+// -------------------------------------------------------------------------
+
+.dashboard-navbar {
+  @include position(fixed, 0 0 null 0);
+  background-color: $color-brand-teal;
+  box-shadow: 0 20px 80px 5px rgba($color-brand-teal, 0.25);
+  z-index: 10;
+
+  @media (min-width: $sidebar-collapse-breakpoint) {
+    background-color: rgba($color-white, .98);
+    box-shadow: 0 20px 80px 5px rgba($color-brand-teal, 0.05);
+  }
+
+  > .content {
+    height: $nav-header-height;
+  }
+  .nav-burger {
+    margin: 0 10px 0 -15px;
+    * {
+      background-color: $color-brand-grey-light;
+    }
+  }
+  .brand .logo {
+    width: 100px;
+    height: 25px;
+    transform: translateY(5px);
+  }
+  .navs, .nav-item {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .nav-item:not(:first-of-type) {
+    margin-left: 15px;
+  }
+}
+.nav-item.notifications, .nav-item .notifications {
+  position: relative;
+  height: 100%;
+
+  &.active::after {
+    content: ' ';
+    width: 10px;
+    height: 10px;
+    border: 2px solid $color-brand-teal;
+    border-radius: 50%;
+    background-color: $color-brand-fuchsia;
+    @include position(absolute, 50% null null 50%);
+    transform: translateY(-10px);
+
+    @media (min-width: $sidebar-collapse-breakpoint) {
+      border: 2px solid $color-white;
+    }
+  }
+}
+
+.nav-item.dropdown {
+  .dropdown-toggle {
+    height: 100%;
+    padding: 0;
+    font-weight: 300;
+  }
+  .dropdown-toggle .profile-photo {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    box-shadow: none;
+
+    @media (min-width: $sidebar-collapse-breakpoint) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .dropdown-toggle .caption {
+    margin-right: 5px;
+  }
+  .dropdown-menu {
+    border: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: 0 20px 80px 5px rgba($color-black, 0.05);
+    margin-top: 0;
+  }
+  .dropdown-menu .dropdown-item {
+    background-color: transparent;
+    
+    &:hover {
+      background-color: $color-brand-ash;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+.bg-fixed {
+  background-attachment: fixed;
+}
+.bg-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bg-center {
+  background-position: center center;
+}
+.bg-center-right {
+  background-position: center right;
+}
+
+.hidden {
+  display: none;
+}
+
+.preamble {
+  margin-right: .5em;
+}
+
+.flipped-h {
+  transform-origin: center center;
+  transform: scaleX(-1);
+}
+.flipped-v {
+  transform-origin: center center;
+  transform: scaleY(-1);
+}
+
+.flexer {
+  display: flex;
+
+  &.flexer-row {
+    flex-direction: row;
+  }
+  &.flexer-column {
+    flex-direction: column;
+  }
+  > :not(.flexed), > :not(.flexed-no-shrink) {
+    flex: 0 0 auto;
+  }
+  > .flexed {
+    flex: 1 1 auto;
+  }
+  > .flexed-no-shrink {
+    flex: 1 0 auto;
+  }
+}
+
+.pos-center {
+  @include position(absolute, 50% null null 50%);
+  transform: translate(-50%, -50%);
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: .5;
+}

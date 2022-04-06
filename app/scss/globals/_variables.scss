@@ -1,0 +1,136 @@
+// -------------------------------------------------------------------------
+// Paths
+// -------------------------------------------------------------------------
+
+$path-to-images: '../img';
+$path-to-fonts: '../fonts';
+
+
+// -------------------------------------------------------------------------
+// Colors
+// -------------------------------------------------------------------------
+
+$color-white: #FFF;
+$color-black: #000;
+$color-brand-fuchsia: #FF2D6E;
+$color-brand-orange: #FF8B2D;
+$color-brand-nude: #F8F4F3;
+$color-brand-green: #03BF94;
+$color-brand-green-mint: #1AE4B6;
+$color-brand-blue: #113E52;
+$color-brand-blue-turquoise: #1ACFE4;
+$color-brand-ash: #F4F4F4;
+$color-brand-ash-dark: #E9ECEF;
+$color-brand-grey-dark: #A4A4A4;
+$color-brand-grey-light: #D8D8D8;
+$color-brand-nude: #F8EDEF;
+$color-brand-peach: #F6EBE8;
+$color-brand-teal: #152C35;
+$color-facebook: #3C5A99;
+$color-google: #E93F33;
+$color-linked-in: #006699;
+$color-success: $color-brand-green;
+$color-error: #B80202;
+
+$color-accent: $color-brand-fuchsia;
+
+
+// -------------------------------------------------------------------------
+// Typography
+// -------------------------------------------------------------------------
+
+$font-family-base: 'Open Sans', sans-serif;
+$font-family-header: 'Brandon Grotesque', sans-serif;
+$font-family-button: 'Brandon Grotesque', sans-serif;
+$font-family-input: 'Brandon Grotesque', sans-serif;
+$font-family-card: 'Brandon Grotesque', sans-serif;
+
+$font-size-base-min: 12px;
+$font-size-base-max: 15px;
+
+
+// -------------------------------------------------------------------------
+// Layout
+// -------------------------------------------------------------------------
+
+$grid-breakpoint-xxs: 0px; // Extra extra small screen / phone
+$grid-breakpoint-xs: 300px; // Extra small screen / phone
+$grid-breakpoint-sm: 544px; // Small screen / phone
+$grid-breakpoint-md: 768px; // Medium screen / tablet
+$grid-breakpoint-lg: 992px; // Large screen / desktop
+$grid-breakpoint-xl: 1200px; // Extra large screen / wide desktop
+$grid-breakpoint-xxl: 1370px; // Extra Extra large screen / wide desktop
+
+$grid-breakpoint-aliases: (
+  $grid-breakpoint-xxs: xxs,
+  $grid-breakpoint-xs: xs,
+  $grid-breakpoint-sm: sm,
+  $grid-breakpoint-md: md,
+  $grid-breakpoint-lg: lg,
+  $grid-breakpoint-xl: xl,
+  $grid-breakpoint-xxl: xxl
+);
+
+$grid-gutter-min: 20px;
+$grid-gutter-max: 40px;
+$grid-columns: 12;
+
+$table-spacing: 10px;
+
+$nav-header-height: 80px;
+
+$sidebar-size: 215px;
+$sidebar-collapse-breakpoint: $grid-breakpoint-md;
+
+$modal-size: 750px;
+
+
+// -------------------------------------------------------------------------
+// Misc
+// -------------------------------------------------------------------------
+
+$navbar-navs-toggle-duration: .4s;
+$navbar-theme-change-duration: .4s;
+$component-hover-fx-duration: .3s;
+$component-fx-duration: .3s;
+
+$component-border-radius: 5px;
+
+$component-box-shadow: 0 10px 80px 5px rgba($color-black, 0.06);
+$button-box-shadow: 0 10px 60px 0 rgba($color-black, 0.15);
+$image-box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.15);
+
+$button-size-sm: 35px;
+$button-size-normal: 40px;
+$button-size-md: 50px;
+$button-size-lg: 60px;
+$button-size-xl: 70px;
+
+
+$component-icon-size-xs: 12px;
+$component-icon-size-sm: 15px;
+$component-icon-size-md: 18px;
+$component-icon-size-lg: 22px;
+$component-icon-size-xl: 30px;
+
+
+$form-control-size-sm: $button-size-sm;
+$form-control-size-normal: $button-size-normal;
+$form-control-size-md: $button-size-md;
+$form-control-size-lg: $button-size-lg;
+$form-control-size-xl: $button-size-xl;
+
+// $form-textarea-default-rows: 2;
+
+$button-icon-size: $component-icon-size-sm;
+$input-icon-size: $component-icon-size-sm;
+
+$component-icon-sm: 15px;
+$component-icon-lg: 30px;
+
+$caret-size: 3px;
+
+$overlay-blur-radius: 5px;
+$overlay-opacity: .8;
+
+$form-control-blur-opacity: .5;
